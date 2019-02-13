@@ -85,6 +85,10 @@ def flow2bgr_middlebury(flow):
     mag = np.sqrt(u**2 + v**2)
     max_mag = mag.max()
     #max_mag = (u.max()+ v.max())*2+1
+
+    if max_mag == 0:
+        return bgr
+
     scale = 1.0/max_mag
 
     # scaling
